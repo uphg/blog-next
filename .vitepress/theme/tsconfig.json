@@ -1,0 +1,9 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", ".vitepress/**/*", ".vitepress/**/*.vue", ".vitepress/**/*.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "module": "ES2022"
+  }
+}
