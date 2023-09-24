@@ -8,13 +8,16 @@ import { fileURLToPath } from "url"
 
 const reFilterTag = /<(\/)?[^>]+>/g
 const reMeta = /^---\s*\n([\s\S]*?)\n---/
+const rePlace = /@__([A-Za-z]+)__@/g
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const outputDir = path.resolve(__dirname, '../output')
+const resolve = (p) => path.resolve(outputDir, p)
+const postsTemp = fs.readFileSync(path.resolve(__dirname, '../template/posts.md'), 'utf8');
+const tagsTemp = fs.readFileSync(path.resolve(__dirname, '../template/tags.md'), 'utf8');
 
 async function run() {
-  const resolve = (p) => path.resolve(outputDir, p)
   const posts = await getPostList()
   const pagingPosts = getPagingPosts(posts)
 
@@ -23,41 +26,48 @@ async function run() {
   }
 
   const postsDir = resolve('posts')
-  // const tagsDir = resolve('tags')
+  const tagsDir = resolve('tags')
 
   fs.mkdirSync(outputDir)
   fs.mkdirSync(postsDir)
   fs.mkdirSync(resolve('post'))
-  // fs.mkdirSync(tagsDir)
+  fs.mkdirSync(tagsDir)
 
   copyDirectory(path.resolve(__dirname, '../src'), outputDir)
-  const postsTemp = fs.readFileSync(path.resolve(__dirname, '../template/posts.md'), 'utf8');
 
-  pagingPosts.forEach((data) => {
-    const dir = resolve(`posts/${data.page}`)
-    fs.mkdirSync(dir)
-    const postsMd = postsTemp.replace(/@__([A-Za-z]+)__@/g, (_, name) => {
-      switch (name) {
-        case 'posts':
-          return JSON.stringify(data.items.map((item) => ({ title: item.title, to: item.fileName, description: item.description, date: item.date })))
-        case 'next':
-          return data.next
-        case 'prev':
-          return data.prev
-      }
-    }) 
-  
-    fs.writeFile(resolve(`posts/${data.page}/index.md`), postsMd, onError)
-    if (data.page === 1) {
-      fs.writeFile(resolve('posts/index.md'), postsMd, onError)
+  createPagingPosts(pagingPosts, {
+    pathPrefix: 'posts',
+    title: () => '博客',
+    description: () => '我最近的博客',
+    next: (data) => data.next ? `/posts/${data.next}/` : '',
+    prev: (data) => data.prev ? `/posts/${data.prev}/` : '',
+    callback: (data) => {
+      data.items.forEach((post) => {
+        const content = fs.readFileSync(path.resolve(post.source), 'utf8');
+        const newContent = content.replace(reMeta, (prev) => `${prev}\n\n# ${post.title}\n`);
+        fs.writeFileSync(resolve(`post/${post.fileName}.md`), newContent, 'utf8')
+      })
     }
-  
-    data.items.forEach((post) => {
-      // fs.copyFile(path.resolve(post.source), resolve(`post/${post.fileName}.md`), onError)
-      // const filePath = path.resolve(post.source)
-      const content = fs.readFileSync(path.resolve(post.source), 'utf8');
-      const newContent = content.replace(reMeta, (prev) => `${prev}\n\n# ${post.title}\n`);
-      fs.writeFileSync(resolve(`post/${post.fileName}.md`), newContent, 'utf8')
+  })
+
+  // 创建 tag 目录
+  const tags = getTags(posts)
+  const tagsMd = tagsTemp.replace(rePlace, (_, name) => {
+    if (name === 'tags') {
+      return JSON.stringify(tags)
+    }
+  })
+  fs.writeFile(resolve('tags/index.md'), tagsMd, onError)
+
+  tags.forEach((tag) => {
+    fs.mkdirSync(resolve(`tags/${tag}`))
+    const tagPosts = getTagPosts(posts, tag)
+    const pagingPosts = getPagingPosts(tagPosts, 10)
+    createPagingPosts(pagingPosts, {
+      pathPrefix: `tags/${tag}`,
+      title: () => `标签：${tag}`,
+      next: (data) => data.next ? `/tags/${tag}/${data.next}/` : '',
+      prev: (data) => data.prev ? `/tags/${tag}/${data.prev}/` : ''
     })
   })
 }
@@ -118,6 +128,34 @@ export const getPagingPosts = (posts, pageSize = 10) => {
   return result
 }
 
+function createPagingPosts(pagingPosts, { pathPrefix, callback, next, prev, title, description }) {
+  pagingPosts.forEach((data) => {
+    const dir = resolve(`${pathPrefix}/${data.page}`)
+    fs.mkdirSync(dir)
+    const postsMd = postsTemp.replace(rePlace, (_, name) => {
+      switch (name) {
+        case 'posts':
+          return JSON.stringify(data.items.map((item) => ({ title: item.title, to: item.fileName, description: item.description, date: item.date })))
+        case 'next':
+          return next(data)
+        case 'prev':
+          return prev(data)
+        case 'title':
+          return title ? title(data) : ''
+        case 'description':
+          return description ? description(data) : ''
+      }
+    }) 
+  
+    fs.writeFile(resolve(`${pathPrefix}/${data.page}/index.md`), postsMd, onError)
+    if (data.page === 1) {
+      fs.writeFile(resolve(`${pathPrefix}/index.md`), postsMd, onError)
+    }
+
+    callback?.(data)
+  })
+}
+
 function createDescription(value) {
   // max 268
   // 中文 [\u4e00-\u9fa5]，双字节字符 [^\x00-\xff]
@@ -129,18 +167,35 @@ function createDescription(value) {
   return content.slice(0, 160)
 }
 
+function getTagPosts(posts, tag) {
+  const result = []
+  for (const post of posts) {
+    if (post.tags?.includes(tag)) {
+      result.push(post)
+    }
+  }
+
+  return result
+}
+
+function getTags(posts) {
+  const result = []
+  posts.forEach((item) => {
+    item.tags?.forEach((tag) => {
+      if (!result.includes(tag)) {
+        result.push(tag)
+      }
+    })
+  })
+
+  return result
+}
+
 function getFileName(path) {
   const names = path.split(/(\\)|(\/)/)
   const fileName = names[names.length - 1]
   return fileName.replace(/\.md$/g, "")
 }
-
-function insertTitle(filePath, content) {
-  const fileContent = fs.readFileSync(filePath, 'utf8');
-  const modifiedContent = fileContent.replace(reMeta, `$1\n${content}`);
-  fs.writeFileSync(filePath, modifiedContent, 'utf8')
-}
-
 
 function copyDirectory(sourceDir, targetDir) {
   fs.mkdirSync(targetDir, { recursive: true });

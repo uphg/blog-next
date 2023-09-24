@@ -6,11 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview",
-    "ts": "ts-node --esm",
-    "r": "rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript"
+    "dev": "node build/build.js && vitepress dev",
+    "build": "node build/build.js && vitepress build",
+    "preview": "vitepress preview"
   },
   "keywords": [],
   "author": "",

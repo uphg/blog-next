@@ -60,7 +60,7 @@ z 命令是一个快捷跳转目录的命令，可以记录你每次经常进入
 
 3. 安装成功后在用户目录下的 `.bashrc` 输入
 
-```text
+```
 export PATH="$PATH:/C/Software/GnuWin32/bin"
 ```
 
@@ -99,7 +99,7 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 
 其他命令缩写：
 
-```text
+```bash
 alias gst="git status -sb"
 alias ga="git add"
 alias gc="git commit -v"

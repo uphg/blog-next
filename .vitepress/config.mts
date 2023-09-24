@@ -14,18 +14,9 @@ export default defineConfig({
     // aside: 'left',
     nav: [
       { text: '首页', link: '/' },
-      { text: '博客', link: '/posts/' }
+      { text: '博客', link: '/posts/' },
+      { text: '标签', link: '/tags/' }
     ],
-
-    // sidebar: [
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' }
-    //     ]
-    //   }
-    // ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }

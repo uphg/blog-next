@@ -8,11 +8,11 @@
       <slot></slot>
     </div>
     <div class="footer">
-      <Link v-if="next" class="next" :to="`/posts/${next}/`">
+      <Link v-if="next" class="next" :to="next">
         <IconArrowLeft/>
         <span>{{ nextText }}</span>
       </Link>
-      <Link v-if="prev" class="prev" :to="`/posts/${prev}/`">
+      <Link v-if="prev" class="prev" :to="prev">
         <span>{{ prevText }}</span>
         <IconArrowRight/>
       </Link>

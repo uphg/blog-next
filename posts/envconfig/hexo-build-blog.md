@@ -154,13 +154,13 @@ hexo clean
 
 3.0.0版本执行
 
-```text
+```bash
 npm uninstall hexo-cli -g
 ```
 
 之前版本执行
 
-```text
+```bash
 npm uninstall hexo -g
 ```
 

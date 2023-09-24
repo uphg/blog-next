@@ -1,5 +1,5 @@
 <template>
-  <Link class="tag" :to="to">
+  <Link class="tag" :to="`/tags/${to}/`">
     <slot></slot>
   </Link>
 </template>

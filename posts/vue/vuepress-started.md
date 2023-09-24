@@ -53,7 +53,7 @@ yarn docs:dev # npm run docs:dev
 
 ## 目录结构
 
-```text
+```
 .
 ├─ docs
 │  ├─ README.md                # 首页文档设置
