@@ -17,9 +17,11 @@ const resolve = (p) => path.resolve(outputDir, p)
 const postsTemp = fs.readFileSync(path.resolve(__dirname, '../template/posts.md'), 'utf8');
 const tagsTemp = fs.readFileSync(path.resolve(__dirname, '../template/tags.md'), 'utf8');
 
+const pageSize = 5
+
 async function run() {
   const posts = await getPostList()
-  const pagingPosts = getPagingPosts(posts)
+  const pagingPosts = getPagingPosts(posts, pageSize)
 
   if (fs.existsSync(outputDir)) {
     fs.rmSync(outputDir, { recursive: true });
@@ -62,7 +64,7 @@ async function run() {
   tags.forEach((tag) => {
     fs.mkdirSync(resolve(`tags/${tag}`))
     const tagPosts = getTagPosts(posts, tag)
-    const pagingPosts = getPagingPosts(tagPosts, 10)
+    const pagingPosts = getPagingPosts(tagPosts, pageSize)
     createPagingPosts(pagingPosts, {
       pathPrefix: `tags/${tag}`,
       title: () => `标签：${tag}`,
@@ -79,7 +81,7 @@ function onError(e) {
   }
 }
 
-export const getRawPosts = async (options) => {
+export const getRawPosts = async () => {
   const filePaths = await fg(["posts/**/*.md"])
   const posts = []
   filePaths.forEach(filePath => {
