@@ -23,6 +23,8 @@ async function run() {
   const posts = await getPostList()
   const pagingPosts = getPagingPosts(posts, pageSize)
 
+  createPrevAndNext(posts)
+
   if (fs.existsSync(outputDir)) {
     fs.rmSync(outputDir, { recursive: true });
   }
@@ -46,7 +48,12 @@ async function run() {
     callback: (data) => {
       data.items.forEach((post) => {
         const content = fs.readFileSync(path.resolve(post.source), 'utf8');
-        const newContent = content.replace(reMeta, (prev) => `${prev}\n\n# ${post.title}\n`);
+        const newContent = content.replace(reMeta, (meta) => {
+          const nextText = post.next?.title ? `next:\n  text: '${post.next.title}'\n  link: '${`/post/${post.next.fileName}`}'\n` : ''
+          const prevText = post.prev?.title ? `prev:\n  text: '${post.prev.title}'\n  link: '${`/post/${post.prev.fileName}`}'\n` : ''
+          const newMeta = meta.replace(/---$/, (u) => nextText + prevText + u)
+          return `${newMeta}\n\n# ${post.title}\n`
+        });
         fs.writeFileSync(resolve(`post/${post.fileName}.md`), newContent, 'utf8')
       })
     }
@@ -81,7 +88,7 @@ function onError(e) {
   }
 }
 
-export const getRawPosts = async () => {
+async function getRawPosts() {
   const filePaths = await fg(["posts/**/*.md"])
   const posts = []
   filePaths.forEach(filePath => {
@@ -103,8 +110,8 @@ export const getRawPosts = async () => {
   return posts
 }
 
-export const getPostList = async (options = { tag: null }) => {
-  const posts = await getRawPosts(options)
+async function getPostList() {
+  const posts = await getRawPosts()
   const orderPosts = orderBy(posts, ["date"], "desc")
   const dateNotEmptys = orderPosts.filter(item => item.date)
   const dateEmptys = orderBy(
@@ -115,7 +122,21 @@ export const getPostList = async (options = { tag: null }) => {
   return dateNotEmptys.concat(dateEmptys)
 }
 
-export const getPagingPosts = (posts, pageSize = 10) => {
+function createPrevAndNext(posts) {
+  let index = -1
+  const length = posts.length
+  while (++index < length) {
+    const last = length - 1
+    if (index > 0) {
+      posts[index].prev = posts[index - 1]
+    }
+    if (index < last) {
+      posts[index].next = posts[index + 1]
+    }
+  }
+}
+
+function getPagingPosts(posts, pageSize = 10) {
   const result = []
   const pageCount = Math.ceil(posts.length / pageSize)
   let index = -1

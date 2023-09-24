@@ -67,7 +67,7 @@ BFC是没有一个明确的定义的，它是通过特定的属性所反映的�
 
 效果图
 
-![图片](/images/bfc-demo1.jpg)
+![图片](../images/bfc-demo1.jpg)
 
 代码链接: [https://jsbin.com/kobeyes/edit?html,css,output](https://jsbin.com/kobeyes/edit?html,css,output)
 
@@ -98,7 +98,7 @@ div { padding: 1em; }
 
 效果图
 
-![图片](/images/bfc-demo2.jpg)
+![图片](../images/bfc-demo2.jpg)
 
 代码链接: [https://jsbin.com/tiqagab/edit?html,css,output](https://jsbin.com/tiqagab/edit?html,css,output)
 

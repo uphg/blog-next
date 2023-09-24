@@ -48,11 +48,11 @@ div.querySelectorAll('button')[1].onclick = () => {
 
 <p style="text-align: center;">———— 简易版 ————</p>
 
-![图片](/images/react-life-cycle-use.jpg)
+![图片](../images/react-life-cycle-use.jpg)
 
 <p style="text-align: center;">———— 完整版 ————</p>
 
-![图片](/images/react-life-cycle-complete.jpg)
+![图片](../images/react-life-cycle-complete.jpg)
 
 > 图片来自：[https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 

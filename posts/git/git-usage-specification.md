@@ -40,7 +40,7 @@ git merge --no-ff dev
 
 关于 `--no-ff` 参数：默认情况下，Git 执行“快进式合并”（fast-farward merge），会直接将 `main` 分支指向 `dev` 分支。使用 `--no-ff` 参数后，会执行正常合并，在 `main` 分支上生成一个新节点。为了能够清晰的看到合并前的结构，尽量采用这种方式。
 
-![git merge 两种合并流程示例](/images/git-use-standard-process-merge-demo.png)
+![git merge 两种合并流程示例](../images/git-use-standard-process-merge-demo.png)
 
 如上图，在后一种情况下，无法从 Git 提交历史中看到合并之前新功能分支的所做的改动历史。
 

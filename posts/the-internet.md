@@ -37,7 +37,7 @@ URN(统一资源名称)
 
 URL(统一资源定位符)
 
-![URL 图示](/images/the-internet-url.jpg)
+![URL 图示](../images/the-internet-url.jpg)
 
 `baidu.com` (二级域名) 与  `www.baidu.com` (三级域名) 共用一个二级域名
 
@@ -80,7 +80,7 @@ $ ping baidu.com
 
 Server(服务器) Client(客户端) HTTP(协议)
 
-![URL 图示](/images/the-internet-sch.jpg)
+![URL 图示](../images/the-internet-sch.jpg)
 
 ### 常用端口
 
@@ -99,7 +99,7 @@ HTTP的作用就是指导浏览器和服务器如何进行沟通，例如
 
 ## 请求和响应
 
-![请求和响应](/images/the-internet-request-and-response.jpg)
+![请求和响应](../images/the-internet-request-and-response.jpg)
 
 **请求**
 
@@ -149,7 +149,7 @@ curl -X POST -d "123456789" -s -v -H "Sun: xxx" -- "https://www.baidu.com"
 
 请求示例
 
-![curl 命令图示](/images/the-internet-curl.jpg)
+![curl 命令图示](../images/the-internet-curl.jpg)
 
 请求体部分内容示例
 

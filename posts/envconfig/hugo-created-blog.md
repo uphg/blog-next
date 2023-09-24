@@ -24,9 +24,9 @@ draft: false
 
 图示：
 
-![hugo](/images/blog-hugo-path1.jpg)
+![hugo](../images/blog-hugo-path1.jpg)
 
-![hugo](/images/blog-hugo-path2.jpg)
+![hugo](../images/blog-hugo-path2.jpg)
 
 安装后运行以下命令，检查版本
 

@@ -16,7 +16,7 @@ HankRnd-Black.ttf
 
 打开后点击 Generator，按照如下步骤操作
 
-![图片](/images/fontsquirrel.jpg)
+![图片](../images/fontsquirrel.jpg)
 
 会得到一个压缩包，复制其中如下后缀的文件
 

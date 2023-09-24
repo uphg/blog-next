@@ -62,7 +62,7 @@ console.log(a)
 
 原本上面的代码就可以实现继承，但是在执行 `Man.prototype = new Human()` 时 `Human()` 被执行了，此时的 name 并没有传入 `new Human()` 中，所以你会发现在当前对象的原型 `Man.prototype` 上多了一个 `name: undefined` 属性，如下图所示
 
-![图片](/images/function-new-prototype.jpg)
+![图片](../images/function-new-prototype.jpg)
 
 为了解决这个问题，可以放一个中间函数（Fn）用来存储 `Human.prototype` ，然后将 `Man.prototype = new Fn()`。这样既实现了原型链的继承，又不会执行 `Human()` 构造函数。
 

@@ -50,7 +50,7 @@ C:\xxx\cmder\vendor\git-for-windows\bin\bash.exe
 
 ## 设置指定文件夹为项目根目录
 
-![webstorm-resource-root](/images/webstorm-resource-root.png)
+![webstorm-resource-root](../images/webstorm-resource-root.png)
 
 可以使引用项目中的图片或其他路径标签时 WebStorm 不提示错误，示例：
 
@@ -62,13 +62,13 @@ C:\xxx\cmder\vendor\git-for-windows\bin\bash.exe
 
 设置 `import { demo } from 'demo'` 中 `{}` 左右的空格
 
-![import space](/images/setting-import-curly-braces-about-space.png)
+![import space](../images/setting-import-curly-braces-about-space.png)
 
 ## 配置文件未保存标识
 
 如图
 
-![file save state](/images/webstorm-file-save-state.png)
+![file save state](../images/webstorm-file-save-state.png)
 
 ## 设置标签换行后内容没有tab
 
@@ -94,21 +94,21 @@ export default {
 
 配置示例
 
-![WebStorm Setting](/images/webstorm-label-tab.jpg)
+![WebStorm Setting](../images/webstorm-label-tab.jpg)
 
 ## 自动引入当前项目的 ESLint
 
 配置示例
 
-![WebStorm Setting](/images/webstorm-import-eslint.jpg)
+![WebStorm Setting](../images/webstorm-import-eslint.jpg)
 
 ## 添加 Vue 项目中 Webpack 配置路径，识别 @ 符
 
-![WebStorm Setting](/images/webstorm-vue-webpack.jpg)
+![WebStorm Setting](../images/webstorm-vue-webpack.jpg)
 
 
 ## 设置当前项目根据 ESLint 保存时自动格式化
 
 图示
 
-![WebStorm Setting](/images/webstorm-setting-eslint.jpg)
+![WebStorm Setting](../images/webstorm-setting-eslint.jpg)

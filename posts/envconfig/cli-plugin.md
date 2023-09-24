@@ -12,7 +12,7 @@ tags:
 
 z 命令是一个快捷跳转目录的命令，可以记录你每次经常进入的目录，只要输入该目录文件名即可跳转。
 
-![cli-plugin](/images/bash-z.png)
+![cli-plugin](../images/bash-z.png)
 
 1. 首先打开 `z` 命令 GitHub 仓库：[https://github.com/rupa/z](https://github.com/rupa/z)
 2. 找一个安全的目录（此处推荐在用户目录下新建一个 GitHub 目录）
@@ -56,7 +56,7 @@ z 命令是一个快捷跳转目录的命令，可以记录你每次经常进入
 1. 打开官网：[http://gnuwin32.sourceforge.net/packages/tree.htm](http://gnuwin32.sourceforge.net/packages/tree.htm)
 2. 选择 Complete package, except sources 那一行下载完整包，如图：
 
-![cil-used](/images/bash-tree.png)
+![cil-used](../images/bash-tree.png)
 
 3. 安装成功后在用户目录下的 `.bashrc` 输入
 
@@ -147,13 +147,13 @@ explorer.exe .
 
 首先打开设置，在启动中设置以下选项
 
-![cil-used](/images/ubuntu_01.png)
+![cil-used](../images/ubuntu_01.png)
 
 然后就可以在 Cmder 中新建 Ubuntu 窗口了
 
 也可以把 Ubuntu 设置为默认启动，如下
 
-![cil-used](/images/ubuntu_02.png)
+![cil-used](../images/ubuntu_02.png)
 
 ## 常用命令
 

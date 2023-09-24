@@ -49,7 +49,7 @@ git log <last release> HEAD --grep feature
 
 Change Log 是发布新版本时，用来说明与上一个版本差异的文档，详见后文。
 
-![Change log 示例](/images/git-commit-specification-demo1.png)
+![Change log 示例](../images/git-commit-specification-demo1.png)
 
 ## Commit message 的格式
 
@@ -223,7 +223,7 @@ pnpm add -D cz-conventional-changelog
 
 以后，凡是用到 `git commit` 命令，一律改为使用 `git cz`。这时，就会出现选项，用来生成符合格式的 Commit message。
 
-![Commitizen 运行示例](/images/git-commit-specification-demo2.png)
+![Commitizen 运行示例](../images/git-commit-specification-demo2.png)
 
 ### 当前项目
 

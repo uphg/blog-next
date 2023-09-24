@@ -21,7 +21,7 @@ date: 2019-08-08 22:31:32
 - 官网链接：https://cmder.net/
 - 下载后尽量解压到一个非中文无空格路径下的目录
 - 选择完整版下载
-  ![cmder](/images/cmder_29.png)
+  ![cmder](../images/cmder_29.png)
 
 ## 配置
 
@@ -29,37 +29,37 @@ date: 2019-08-08 22:31:32
 
 2. 在命令行底部右键菜单栏，选择第三个选项，如图：
 
-  ![cmder](/images/cmder_24.png)
+  ![cmder](../images/cmder_24.png)
    
 3. 配置语言等选项 (此处语言选项可能重启后失效，如果失效需要修改配置文件)，如图：
 
-  ![cmder](/images/cmder_19.png)
+  ![cmder](../images/cmder_19.png)
    
 4. 然后配置窗口比例，这里如果高度配置百分比保存后重新打开无效可以设置为像素，如图：
 
-  ![cmder](/images/cmder_20.png)
+  ![cmder](../images/cmder_20.png)
 
 5. 配置失去焦点自动隐藏，如图：
 
-  ![cmder](/images/cmder_22.png)
+  ![cmder](../images/cmder_22.png)
 
 6. 配置启动程序的默认命令行，即为 Git Bash 如图：
 
-  ![cmder](/images/cmder_23.png)
+  ![cmder](../images/cmder_23.png)
 
 ::: details 假如 Cmder 配置语言后再次打开发现语言还是英文，就需要修改配置文件
 
 打开设置，选择导出，如图：
 
-![cmder](/images/cmder_25.png)
+![cmder](../images/cmder_25.png)
   
 选择那个 ConEmu.xml 文件，如图：
 
-![cmder](/images/cmder_26.png)
+![cmder](../images/cmder_26.png)
   
 然后在文件中查找 language 将其中 data 的属性改为 zh 如图：
 
-![cmder](/images/cmder_27.png)
+![cmder](../images/cmder_27.png)
 
 :::
 
@@ -83,7 +83,7 @@ date: 2019-08-08 22:31:32
 
 在设置中选择 `按键 & 宏` 一栏在其中的搜索框中搜索 分屏 然后设置 复制分屏至底部和复制分屏至右侧的快捷键，如图：
 
-![cmder](/images/cmder_28.png)
+![cmder](../images/cmder_28.png)
 
 设置之后就可以使用快捷键分屏了
 

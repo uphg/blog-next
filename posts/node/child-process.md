@@ -48,11 +48,11 @@ tags:
 
 运行流程
 
-![进程 - 运行流程](/images/process-running-process.jpg)
+![进程 - 运行流程](../images/process-running-process.jpg)
 
 创建流程
 
-![进程 - 创建流程](/images/process-creation-process.jpg)
+![进程 - 创建流程](../images/process-creation-process.jpg)
 
 ## 线程 Thread 的引入
 

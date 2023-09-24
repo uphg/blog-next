@@ -9,7 +9,7 @@ tags:
 
 ## 函数是什么
 
-![子程序](/images/function-routine.jpg)
+![子程序](../images/function-routine.jpg)
 
 > JavaScript 中只有**函数**和**方法**
 

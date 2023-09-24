@@ -36,11 +36,11 @@ HTML
 
 图示：
 
-![图片](/images/CSS-Layout_01.jpg)
+![图片](../images/CSS-Layout_01.jpg)
 
 但假如在其中插入一个带有 `border: 1px solid black;` 的 div 时，margin 又会被撑开，如图：
 
-![图片](/images/CSS-Layout_02.jpg)
+![图片](../images/CSS-Layout_02.jpg)
 
 > 即使插入的 div 边框为 0.1px 其他div的margin也会受到影响，其他会影响margin的属性还有: `display: table;`，`display: flex` 等
 
@@ -80,11 +80,11 @@ main {
 
 图示：
 
-![图片](/images/CSS-Layout_03.jpg)
+![图片](../images/CSS-Layout_03.jpg)
 
 **给上面的父元素添加一个 `border-top: 5px solid green;`，子元素就会撑开父元素了，如图：**
 
-![图片](/images/CSS-Layout_04.jpg)
+![图片](../images/CSS-Layout_04.jpg)
 
 除了加 border 属性，还可以添加: `padding`  `display: inline-block;`  `display: flex;`  `display: table;`  `overflow: hidden;` 等
 
@@ -119,7 +119,7 @@ li {
 
 图：
 
-![图片](/images/CSS-Layout_05.jpg)
+![图片](../images/CSS-Layout_05.jpg)
 
 > 原因：由于默认的 li 的默认 display 属性为： `list-item`  小圆点只会显示在有这个属性的元素上
 
@@ -154,7 +154,7 @@ CSS
 
 此时打开控制台选中 child 元素 在控制台右侧选择 Computed 一栏 搜索 display ，就可以看到实际上child 的 display 属性变成了 block ，如图：
 
-![图片](/images/CSS-Layout_06.jpg)
+![图片](../images/CSS-Layout_06.jpg)
 
 > 注意：只有当 display 的属性为 inline 或者 inline-block 时添加 position 属性才会被变为 block
 
@@ -193,7 +193,7 @@ main {
 
 图示：
 
-![图片](/images/CSS-Layout_07.jpg)
+![图片](../images/CSS-Layout_07.jpg)
 
 代码链接：http://js.jirengu.com/zesiyopemi/2/edit
 
@@ -230,7 +230,7 @@ CSS
 
 这时 float 元素就会影响兄弟元素里的 inline 元素，如图：
 
-![图片](/images/CSS-Layout_08.jpg)
+![图片](../images/CSS-Layout_08.jpg)
 
 代码链接：http://js.jirengu.com/bojacipogu/10/edit
 

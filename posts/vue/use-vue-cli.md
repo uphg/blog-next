@@ -149,4 +149,4 @@ VSCode 也可以在 prettier 插件中添加以下全局配置
 
 VSCode 使 Prettier 插件使用当前项目的规则
 
-![file save state](/images/vscode-setting-prettier.jpg)
+![file save state](../images/vscode-setting-prettier.jpg)

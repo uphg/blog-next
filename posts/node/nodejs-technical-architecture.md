@@ -139,13 +139,13 @@ EventLoop 执行顺序图示
 
 ::: details 图示
 
-![EventLoop 执行顺序图示](/images/nodejs-eventloop-process.jpg)
+![EventLoop 执行顺序图示](../images/nodejs-eventloop-process.jpg)
 
 :::
 
 ## Node.js 工作流程
 
-![Node.js 工作流程](/images/nodejs-process.jpg)
+![Node.js 工作流程](../images/nodejs-process.jpg)
 
 ## 面试题
 
@@ -160,45 +160,39 @@ setImmediate(f2)
 
 end 。。。
 
-<style lang="scss" scoped>
+<style scoped>
 .flexible-container {
-  min-width: 690px;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-
-  & > .flexible-table {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    text-align: center;
-
-    .flexible-table__title > b {
-      font-size: 26px;
-      font-weight: 500;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    & > li {
-      padding: 10px 0;
-      border-bottom: 1px solid #000;
-      border-right: 1px solid #000;
-    }
-    &:nth-child(1) > li {
-      width: 100%;
-    }
-      
-    &:nth-child(2) > li {
-      width: 50%;
-    }
-      
-    &:nth-child(3) > li {
-      flex-grow: 1;
-    }
-  }
-    
+	 min-width: 690px;
+	 border-top: 1px solid #000;
+	 border-left: 1px solid #000;
 }
+ .flexible-container > .flexible-table {
+	 margin: 0;
+	 padding: 0;
+	 list-style: none;
+	 display: flex;
+	 text-align: center;
+}
+ .flexible-container > .flexible-table .flexible-table__title > b {
+	 font-size: 26px;
+	 font-weight: 500;
+}
+ .flexible-container > .flexible-table p {
+	 margin: 0;
+}
+ .flexible-container > .flexible-table > li {
+	 padding: 10px 0;
+	 border-bottom: 1px solid #000;
+	 border-right: 1px solid #000;
+}
+ .flexible-container > .flexible-table:nth-child(1) > li {
+	 width: 100%;
+}
+ .flexible-container > .flexible-table:nth-child(2) > li {
+	 width: 50%;
+}
+ .flexible-container > .flexible-table:nth-child(3) > li {
+	 flex-grow: 1;
+}
+ 
 </style>

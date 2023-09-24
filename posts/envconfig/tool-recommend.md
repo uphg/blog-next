@@ -12,7 +12,7 @@ date: 2019-08-14 14:13:54
 
 [Windows Terminal](https://www.microsoft.com/zh-cn/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab) 是微软推出的一款命令行工具，对 Window 系统的兼容性很好。
 
-![Windows Terminal](/images/windows-terminal.jpg)
+![Windows Terminal](../images/windows-terminal.jpg)
 
 ### 常用快捷键
 
@@ -100,7 +100,7 @@ date: 2019-08-14 14:13:54
 
 ## Xshell6
 
-我的配色方案，点击<a :href="$withBase('/file/Andromeda.xcs')">下载文件</a>
+我的配色方案
 
 ```
 [Andromeda]
@@ -139,7 +139,7 @@ count=1
 
 可以在设置中设置快速打开快捷键，如图
 
-![tool](/images/clipboardfusion_01.png)
+![tool](../images/clipboardfusion_01.png)
 
 ## 截图工具 
 
@@ -151,13 +151,13 @@ count=1
 
 可以在设置中设置颜色值复制方式，如图：
 
-![tool](/images/snipaste_01.png)
+![tool](../images/snipaste_01.png)
 
 ## 文件搜索工具
 
 注意安装后在设置中授予，如图：
 
-![tool](/images/Everything-1-4-1.jpg)
+![tool](../images/Everything-1-4-1.jpg)
 
 搜索：Everything
 
