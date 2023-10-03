@@ -141,3 +141,14 @@
 .VPDoc > .container > .content > .content-container > .main > .vp-doc > div:first-child h1 {
   display: none;
 }
+
+:root {
+  --aside-width: 256px;
+}
+
+@media (min-width: 1440px) {
+  .VPContent > .VPDoc:not(.has-sidebar) > .container {
+    max-width: calc(784px + var(--aside-width) * 2);
+    padding-left: var(--aside-width);
+  }
+}
