@@ -119,17 +119,6 @@
 }
 
 /**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
-  --vp-custom-block-tip-border: transparent;
-  --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
-}
-
-/**
  * Component: Algolia
  * -------------------------------------------------------------------------- */
 
@@ -138,12 +127,22 @@
 }
 
 
-.VPDoc > .container > .content > .content-container > .main > .vp-doc > div:first-child h1 {
-  display: none;
-}
+/**
+ * Doc 页面
+ * -------------------------------------------------------------------------- */
 
 :root {
+  --vp-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Microsoft Yahei', 'SimHei', 'Liberation Mono', 'Courier New', monospace;
   --aside-width: 256px;
+  /* --vt-c-text-3: rgba(60, 60, 60, .33); */
+}
+
+.dark {
+  /* --vt-c-text-3: rgba(235, 235, 235, .38); */
+}
+
+.VPDoc .container .content-container > .main > .vp-doc > div > h1:first-child {
+  display: none;
 }
 
 @media (min-width: 1440px) {

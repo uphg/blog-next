@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node build/build.js && vitepress dev",
+    "dev": "vitepress dev",
     "build": "node build/build.js && vitepress build",
+    "build:post": "node build/build.js",
     "preview": "vitepress preview"
   },
   "keywords": [],

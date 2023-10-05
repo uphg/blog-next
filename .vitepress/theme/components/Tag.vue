@@ -5,14 +5,14 @@
 </template>
 
 <script setup>
-import Link from './Link.vue';
+import Link from './Link';
 
 defineProps({
   to: String
 })
 </script>
 
-<style>
+<style scoped>
 .tag {
   padding: .25rem .75rem;
   border-radius: .5rem;

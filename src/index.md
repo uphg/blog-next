@@ -1,7 +1,9 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 ---
 
-我是首页内容。
+<Home/>
 
+<script setup lang="ts">
+import Home from './Home.vue'
+</script>

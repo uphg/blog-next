@@ -1,14 +1,16 @@
 <template>
-  <div class="tags">
+  <Wrap class="tags">
     <Content/>
-  </div>
+  </Wrap>
 </template>
+
+<script setup lang="ts">
+import Wrap from './Wrap.vue'
+</script>
 
 <style scoped>
 .tags {
-  max-width: 768px;
-  padding: 2.5rem;
-  margin-left: auto;
-  margin-right: auto;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
 }
 </style>

@@ -42,7 +42,6 @@ async function run() {
   createPagingPosts(pagingPosts, {
     pathPrefix: 'posts',
     title: () => '博客',
-    description: () => '我最近的博客',
     next: (data) => data.next ? `/posts/${data.next}/` : '',
     prev: (data) => data.prev ? `/posts/${data.prev}/` : '',
     callback: (data) => {
@@ -158,7 +157,13 @@ function createPagingPosts(pagingPosts, { pathPrefix, callback, next, prev, titl
     const postsMd = postsTemp.replace(rePlace, (_, name) => {
       switch (name) {
         case 'posts':
-          return JSON.stringify(data.items.map((item) => ({ title: item.title, to: item.fileName, description: item.description, date: item.date })))
+          return JSON.stringify(data.items.map((item) => ({
+            title: item.title,
+            to: item.fileName,
+            description: item.description,
+            date: item.date,
+            tags: item.tags
+          })))
         case 'next':
           return next(data)
         case 'prev':
@@ -224,7 +229,6 @@ function copyDirectory(sourceDir, targetDir) {
   fs.mkdirSync(targetDir, { recursive: true });
 
   const files = fs.readdirSync(sourceDir);
-
   files.forEach((file) => {
     const sourcePath = path.join(sourceDir, file);
     const targetPath = path.join(targetDir, file);

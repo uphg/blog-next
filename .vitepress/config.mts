@@ -5,8 +5,8 @@ import { base } from './env'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base,
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "吕恒的个人网站",
+  description: "个人博客网站",
   srcDir: './output',
   lastUpdated: true,
   themeConfig: {
