@@ -44,6 +44,8 @@ async function run() {
     title: () => '博客',
     next: (data) => data.next ? `/posts/${data.next}/` : '',
     prev: (data) => data.prev ? `/posts/${data.prev}/` : '',
+    page: (data) => data.page,
+    total: () => pagingPosts.length,
     callback: (data) => {
       data.items.forEach((post) => {
         const content = fs.readFileSync(path.resolve(post.source), 'utf8');
@@ -75,7 +77,9 @@ async function run() {
       pathPrefix: `tags/${tag}`,
       title: () => `标签：${tag}`,
       next: (data) => data.next ? `/tags/${tag}/${data.next}/` : '',
-      prev: (data) => data.prev ? `/tags/${tag}/${data.prev}/` : ''
+      prev: (data) => data.prev ? `/tags/${tag}/${data.prev}/` : '',
+      page: (data) => data.page,
+      total: () => pagingPosts.length,
     })
   })
 }
@@ -150,7 +154,7 @@ function getPagingPosts(posts, pageSize = 10) {
   return result
 }
 
-function createPagingPosts(pagingPosts, { pathPrefix, callback, next, prev, title, description }) {
+function createPagingPosts(pagingPosts, { pathPrefix, callback, next, prev, title, description, page, total }) {
   pagingPosts.forEach((data) => {
     const dir = resolve(`${pathPrefix}/${data.page}`)
     fs.mkdirSync(dir)
@@ -172,6 +176,10 @@ function createPagingPosts(pagingPosts, { pathPrefix, callback, next, prev, titl
           return title ? title(data) : ''
         case 'description':
           return description ? description(data) : ''
+        case 'page':
+          return page(data)
+        case 'total':
+          return total(data)
       }
     }) 
   

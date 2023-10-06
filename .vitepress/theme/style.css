@@ -145,9 +145,23 @@
   display: none;
 }
 
+.VPNavBar > .container {
+  max-width: 992px;
+}
+
 @media (min-width: 1440px) {
   .VPContent > .VPDoc:not(.has-sidebar) > .container {
     max-width: calc(784px + var(--aside-width) * 2);
     padding-left: var(--aside-width);
   }
+}
+
+
+/* unocss */
+.w-100\% {
+  width: 100%;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }

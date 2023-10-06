@@ -19,7 +19,7 @@ const { frontmatter } = useData()
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 32px;
+  padding-top: 24px;
   padding-bottom: 12px;
 }
 .title {
@@ -34,5 +34,11 @@ const { frontmatter } = useData()
 .date {
   font-size: 14px;
   color: var(--vp-c-text-3);
+}
+
+@media (min-width: 640px) {
+  .doc-header {
+    padding-top: 32px;
+  }
 }
 </style>

@@ -6,7 +6,8 @@
     <div v-if="description" class="description">{{ description }}</div>
     <div class="bottom">
       <div v-if="date" class="date">
-        <span>发布于</span>&nbsp;<span>{{ dayjs(date).format('YYYY-MM-DD') }}</span>
+        <IconRoundAccessTime/>
+        <span>{{ dayjs(date).format('YYYY-MM-DD') }}</span>
       </div>
       <div v-if="tags" class="tags">
         <Link v-for="item, index in tags" :key="index" class="tag" :to="`/tags/${item}/`">{{ item }}</Link>
@@ -22,10 +23,8 @@
 <script setup lang="ts">
 import Link from './Link';
 import IconArrowRight from './IconArrowRight.vue';
+import IconRoundAccessTime from './IconRoundAccessTime.vue'
 import dayjs from 'dayjs'
-
-console.log('dayjs')
-console.log(dayjs)
 
 defineProps({
   title: String,
@@ -87,6 +86,12 @@ defineProps({
   gap: 14px;
   color: var(--vp-c-text-3);
   font-size: 14px;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .tags {

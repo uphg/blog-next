@@ -8,7 +8,7 @@
       <li>Tulip UI</li>
       <li>Element Part</li>
     </ul>
-    <h2>我的项目</h2>
+    <h2>最近的博客</h2>
     <ul>
       <li>Vanilla Utils Plus</li>
       <li>Tulip UI</li>

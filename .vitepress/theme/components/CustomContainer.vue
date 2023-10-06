@@ -30,9 +30,11 @@ defineProps({
   gap: 4;
 }
 .title {
+  line-height: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  letter-spacing: -.02em;
+  white-space: pre-wrap;
 }
 
 .description {

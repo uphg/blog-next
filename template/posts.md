@@ -3,7 +3,14 @@ layout: posts
 sidebar: false
 ---
 
-<PostsContainer title="@__title__@" description="@__description__@" next="@__next__@" prev="@__prev__@">
+<PostsContainer
+  title="@__title__@"
+  description="@__description__@"
+  next="@__next__@"
+  prev="@__prev__@"
+  page="@__page__@"
+  total="@__total__@"
+>
   <PostItem
     v-for="item, index in posts"
     :key="index"

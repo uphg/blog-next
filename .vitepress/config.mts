@@ -1,12 +1,12 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
-import { base } from './env'
+import { base } from './common'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base,
-  title: "吕恒的个人网站",
-  description: "个人博客网站",
+  title: "LH",
+  description: "LH的个人博客网站",
   srcDir: './output',
   lastUpdated: true,
   themeConfig: {

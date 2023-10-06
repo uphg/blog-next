@@ -9,6 +9,7 @@
           <IconArrowLeft/>
           <span>{{ nextText }}</span>
         </Link>
+        <div>{{ page }} / {{ total }}</div>
         <Link class="prev" :class="{ disabled: !prev }" :to="prev">
           <span>{{ prevText }}</span>
           <IconArrowRight/>
@@ -37,6 +38,8 @@ defineProps({
     type: String,
     default: 'Older Posts'
   },
+  page: [String, Number],
+  total: [String, Number],
 })
 </script>
 
@@ -47,6 +50,7 @@ defineProps({
   gap: 2.5rem;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+  min-height: calc(100vh - var(--vp-nav-height) - 40px - 40px - 24px - 40px);
 }
 .bottom {
   display: flex;
