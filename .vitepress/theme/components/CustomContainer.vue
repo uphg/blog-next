@@ -22,7 +22,7 @@ defineProps({
 
 <style scoped>
 .custom-container {
-  padding: 2.5rem 0;
+  padding: 2.5rem 0 5rem;
 }
 .header {
   display: flex;

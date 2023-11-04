@@ -6,6 +6,7 @@ import MarkdownIt from "markdown-it"
 import { orderBy } from "lodash-es"
 import { fileURLToPath } from "url"
 
+console.log(1)
 const reFilterTag = /<(\/)?[^>]+>/g
 const reMeta = /^---\s*\n([\s\S]*?)\n---/
 const rePlace = /@__([A-Za-z]+)__@/g
@@ -20,6 +21,7 @@ const tagsTemp = fs.readFileSync(path.resolve(__dirname, '../template/tags.md'),
 const pageSize = 5
 
 async function run() {
+  console.log(2)
   const posts = await getPostList()
   const pagingPosts = getPagingPosts(posts, pageSize)
 
