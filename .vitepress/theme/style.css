@@ -132,6 +132,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
+  --vp-nav-height: 56px;
   --vp-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Microsoft Yahei', 'SimHei', 'Liberation Mono', 'Courier New', monospace;
   --aside-width: 256px;
   /* --vt-c-text-3: rgba(60, 60, 60, .33); */
